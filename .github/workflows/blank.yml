@@ -29,8 +29,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Sends a notification to Microsoft Teams
+      - name: Send notification to Teams
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          curl -H 'Content-Type: application/json' -d '{"text": "This is a test notification from GitHub Actions"}' https://prod-25.centralindia.logic.azure.com:443/workflows/af803edcc16c4b62b94a1a560e41760b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fxvmK0ZHP2Fki6bj8ET6PGqaWeNejwMAmOL5khV2uM4
